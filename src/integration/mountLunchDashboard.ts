@@ -32,7 +32,13 @@ export function mountLunchDashboard(container: HTMLElement): () => void {
   };
 }
 
-// Export for global access if needed
+// Export for global access
 if (typeof window !== 'undefined') {
   (window as any).mountLunchDashboard = mountLunchDashboard;
+  
+  // Dispatch custom event to signal that the mount function is ready
+  const event = new CustomEvent('reactBundleReady', {
+    detail: { mountFunction: mountLunchDashboard }
+  });
+  window.dispatchEvent(event);
 }

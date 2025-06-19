@@ -1,26 +1,38 @@
-<!doctype html><html lang="en" ng-app="demoApp"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AngularJS + React Integration Demo</title><style>body {
+<!doctype html>
+<html lang="en" ng-app="demoApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>AngularJS + React Integration Demo</title>
+    <style>
+        body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 20px;
             background-color: #f5f5f5;
         }
+
         .demo-container {
             max-width: 1200px;
             margin: 0 auto;
             background: white;
             border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             overflow: hidden;
         }
+
         .demo-header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             padding: 20px;
             text-align: center;
         }
+
         .demo-content {
             padding: 20px;
         }
+
         .integration-info {
             background: #e3f2fd;
             border: 1px solid #2196f3;
@@ -28,12 +40,14 @@
             padding: 15px;
             margin-bottom: 20px;
         }
+
         .react-container {
             border: 2px dashed #ccc;
             border-radius: 8px;
             min-height: 500px;
             position: relative;
         }
+
         .react-container::before {
             content: "React Lunch Management System will render here";
             position: absolute;
@@ -43,9 +57,35 @@
             color: #666;
             font-style: italic;
             z-index: -1;
-        }</style><script defer="defer" src="vendors.js"></script><script defer="defer" src="lunch-management-integration.js"></script></head><body ng-controller="DemoController"><div class="demo-container"><div class="demo-header"><h1>AngularJS + React Integration Demo</h1><p>Lunch Management System Integration</p></div><div class="demo-content"><div class="integration-info"><h3>Integration Status</h3><p><strong>AngularJS Version:</strong> {{angularVersion}}</p><p><strong>Current User:</strong> {{currentUser.name}} ({{currentUser.role}})</p><p><strong>Integration Active:</strong> {{integrationActive ? 'Yes' : 'No'}}</p></div><div class="react-container"><react-lunch-dashboard user-id="{{currentUser.id}}" user-role="{{currentUser.role}}"></react-lunch-dashboard></div></div></div><script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.3/angular.min.js"></script><script src="./lunch-management-integration.js"></script><script src="./src/integration/angularjs-directive.js"></script><script>// Demo AngularJS Application
+        }
+    </style>
+    <script defer="defer" src="vendors.js"></script>
+    <script defer="defer" src="./lunch-management-integration.js"></script>
+</head>
+
+<body ng-controller="DemoController">
+    <div class="demo-container">
+        <div class="demo-header">
+            <h1>AngularJS + React Integration Demo</h1>
+            <p>Lunch Management System Integration</p>
+        </div>
+        <div class="demo-content">
+            <div class="integration-info">
+                <h3>Integration Status</h3>
+                <p><strong>AngularJS Version:</strong> {{angularVersion}}</p>
+                <p><strong>Current User:</strong> {{currentUser.name}} ({{currentUser.role}})</p>
+                <p><strong>Integration Active:</strong> {{integrationActive ? 'Yes' : 'No'}}</p>
+            </div>
+            <div class="react-container"><react-lunch-dashboard user-id="{{currentUser.id}}"
+                    user-role="{{currentUser.role}}"></react-lunch-dashboard></div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.3/angular.min.js"></script>
+    <script src="lunch-management-integration.js"></script>
+    <script src="../src/integration/angularjs-directive.js"></script>
+    <script>// Demo AngularJS Application
         angular.module('demoApp', ['lunchManagement'])
-            .controller('DemoController', function($scope) {
+            .controller('DemoController', function ($scope) {
                 $scope.angularVersion = angular.version.full;
                 $scope.currentUser = {
                     id: 'demo-user-1',
@@ -55,10 +95,13 @@
                 $scope.integrationActive = true;
 
                 // Listen for React events
-                window.addEventListener('lunchOrderPlaced', function(event) {
-                    $scope.$apply(function() {
+                window.addEventListener('lunchOrderPlaced', function (event) {
+                    $scope.$apply(function () {
                         console.log('Order received in AngularJS:', event.detail);
                         // Handle the order in AngularJS context
                     });
                 });
-            });</script></body></html>
+            });</script>
+</body>
+
+</html>

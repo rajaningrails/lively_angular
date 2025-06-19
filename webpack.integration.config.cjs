@@ -10,7 +10,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist-integration'),
     filename: '[name].js',
     library: 'LunchManagement',
-    libraryTarget: 'umd',
+    libraryTarget: 'window',
     globalObject: 'this',
     clean: true,
   },

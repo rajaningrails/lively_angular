@@ -44,6 +44,7 @@
     "eslint": "^9.9.1",
     "eslint-plugin-react-hooks": "^5.1.0-rc.0",
     "eslint-plugin-react-refresh": "^0.4.11",
+    "expose-loader": "^5.0.1",
     "globals": "^15.9.0",
     "html-webpack-plugin": "^5.5.3",
     "husky": "^9.1.7",
