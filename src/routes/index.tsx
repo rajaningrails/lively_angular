@@ -12,9 +12,9 @@ import PublicRoute from "./PublicRoute";
 import { AdminDashboard } from "../pages/AdminDashboard";
 import { MonthlySummary } from "../pages/MonthlySummary";
 import UserDashboard from "../pages/UserDashboard";
-import AdminItemManager from "../pages/AdminItemManger/index.tsx";
-import { store } from "../store/index.ts";
-import { page_endpoints } from "../constants/endpoint.ts";
+import AdminItemManager from "../pages/AdminItemManger";
+import { store } from "../store/index";
+import { page_endpoints } from "../constants/endpoint";
 
 const AppRoutes: React.FC = () => {
   const dispatch = useAppDispatch();
