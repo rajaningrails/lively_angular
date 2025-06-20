@@ -4,7 +4,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   mode: 'production',
   entry: {
-    'lunch-management-integration': './src/integration/mountLunchDashboard.ts',
+  'lunch-management-integration': './src/integration/mountLunchDashboard.ts',
+  'angularjs-directive': './src/integration/angularjs-directive.js',
   },
   output: {
     path: path.resolve(__dirname, 'dist-integration'),
@@ -45,14 +46,11 @@ module.exports = {
     ],
   },
   externals: {
-    // Don't bundle these if they're already available in the AngularJS app
-    // 'react': 'React',
-    // 'react-dom': 'ReactDOM',
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './integration-demo.html',
-      filename: 'integration-demo.html',
+      template: './integration.html',
+      filename: 'integration.html',
     }),
   ],
   optimization: {

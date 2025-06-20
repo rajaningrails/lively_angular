@@ -73,7 +73,7 @@ const AppRoutes: React.FC = () => {
           )
         }
       />
-
+      <Route path="*" element={<UserDashboard />} />
       <Route element={<ProtectedRoute />}>
         <Route path={page_endpoints?.user?.dashboard} element={<UserDashboard />} />
         <Route path={page_endpoints?.admin?.dashboard} element={<AdminDashboard />} />

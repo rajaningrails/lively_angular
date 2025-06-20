@@ -1,7 +1,3 @@
-/**
- * Types for AngularJS integration
- */
-
 export interface AngularJSScope {
   userId?: string;
   userRole?: string;

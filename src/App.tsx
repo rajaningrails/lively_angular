@@ -9,7 +9,7 @@ function App() {
     <Provider store={store}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Router>
+        <Router basename="/">
           <AppRoutes />
         </Router>
       </ThemeProvider>
